@@ -16,7 +16,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/users');
+        const response = await axios.get('https://book-store-backend-x538.onrender.com/users');
         if (Array.isArray(response.data)) {
           setUsers(response.data);
         } else {
@@ -41,8 +41,8 @@ const UserList = () => {
     e.preventDefault();
     try {
       const response = editingUser
-        ? await axios.put(`http://localhost:3001/users/${editingUser._id}`, form)
-        : await axios.post('http://localhost:3001/users', form);
+        ? await axios.put(`https://book-store-backend-x538.onrender.com/users/${editingUser._id}`, form)
+        : await axios.post('https://book-store-backend-x538.onrender.com/users', form);
 
       setUsers(editingUser
         ? users.map(user => (user._id === editingUser._id ? response.data : user))
@@ -62,7 +62,7 @@ const UserList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/users/${id}`);
+      await axios.delete(`https://book-store-backend-x538.onrender.com/users/${id}`);
       setUsers(users.filter(user => user._id !== id));
     } catch (error) {
       setError(error.message);
@@ -72,7 +72,7 @@ const UserList = () => {
   const fetchRentedBooks = async (userId) => {
     try {
       console.log(`Fetching rented books for user: ${userId}`);
-      const response = await axios.get(`http://localhost:3001/users/${userId}/rentedBooks`);
+      const response = await axios.get(`https://book-store-backend-x538.onrender.com/users/${userId}/rentedBooks`);
       setRentedBooks(response.data);
       setSelectedUser(userId);
     } catch (error) {
@@ -83,7 +83,7 @@ const UserList = () => {
 
   const handleReturnBook = async (userId, bookId) => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${userId}/returnBook`, {
+      const response = await fetch(`https://book-store-backend-x538.onrender.com/users/${userId}/returnBook`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
