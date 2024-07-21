@@ -45,7 +45,7 @@ const RentedBooksPage = () => {
 
   const handleReturnBook = async (bookId) => {
     try {
-      const response = await fetch(`http://localhost:3001/users/${userId}/return`, {
+      const response = await fetch(`https://book-store-backend-x538.onrender.com/users/${userId}/return`, {
         method: 'POST', 
         headers: {
           'Content-Type': 'application/json',
