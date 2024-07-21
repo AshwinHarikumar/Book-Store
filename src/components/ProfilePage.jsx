@@ -29,7 +29,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${userId}`);
+        const response = await fetch(`https://book-store-backend-x538.onrender.com/users/${userId}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch user details.');
@@ -62,7 +62,7 @@ const ProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3001/users/${userId}`, {
+      const response = await fetch(`https://book-store-backend-x538.onrender.com/users/${userId}`, {
         method: 'PUT', 
         headers: {
           'Content-Type': 'application/json',
