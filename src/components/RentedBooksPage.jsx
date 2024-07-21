@@ -20,7 +20,7 @@ const RentedBooksPage = () => {
   useEffect(() => {
     const fetchRentedBooks = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/users/${userId}/rentedBooks`);
+        const response = await fetch(`https://book-store-backend-x538.onrender.com/users/${userId}/rentedBooks`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch rented books.');
