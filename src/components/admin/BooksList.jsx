@@ -19,7 +19,7 @@ function BooksList() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/books');
+      const response = await axios.get('https://book-store-backend-x538.onrender.com/books');
       setBooks(response.data);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -51,12 +51,12 @@ function BooksList() {
     try {
       if (editMode && editBookId) {
         // Update existing book
-        const response = await axios.put(`http://localhost:3001/books/${editBookId}`, formData);
+        const response = await axios.put(`https://book-store-backend-x538.onrender.com/books/${editBookId}`, formData);
         console.log(response.data);
         alert('Book updated successfully!');
       } else {
         // Add new book
-        const response = await axios.post('http://localhost:3001/books', formData);
+        const response = await axios.post('https://book-store-backend-x538.onrender.com/books', formData);
         console.log(response.data);
         alert('Book added successfully!');
       }
@@ -83,7 +83,7 @@ function BooksList() {
   const handleDeleteBook = async (bookId) => {
     if (window.confirm('Are you sure you want to delete this book?')) {
       try {
-        const response = await axios.delete(`http://localhost:3001/books/${bookId}`);
+        const response = await axios.delete(`https://book-store-backend-x538.onrender.com/books/${bookId}`);
         if (response.status === 200) {
           alert('Book deleted successfully!');
           fetchBooks(); 
